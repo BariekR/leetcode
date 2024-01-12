@@ -3,23 +3,28 @@ import java.util.stream.IntStream;
 
 public class MinimumSizeSubarraySum {
     public int minSubArrayLen(int target, int[] nums) {
-        int window = 0;
-        while (window < nums.length) {
-            int i = 0;
-            int j = window++;
+        int min = nums.length + 1;
+        int sum = nums[0];
+        int i = 0, j = 0;
 
-            while (j < nums.length) {
-                int sum = 0;
-                for (int k = i; k <= j; k++) {
-                    sum += nums[k];
+        while (true) {
+            if (sum < target) {
+                if (j == nums.length - 1) {
+                    break;
                 }
-                if (sum >= target) {
-                    return j - i + 1;
+                sum += nums[++j];
+            } else {
+                if (j - i + 1 < min) {
+                    min = j - i + 1;
                 }
+                sum -= nums[i];
                 i++;
-                j++;
+            }
+            if (i == nums.length && j == nums.length - 1) {
+                break;
             }
         }
-        return 0;
+
+        return min == nums.length + 1 ? 0 : min;
     }
 }
