@@ -1,4 +1,4 @@
-public class Node {
+/*public class Node {
     public int val;
     public Node left;
     public Node right;
@@ -16,4 +16,11 @@ public class Node {
         right = _right;
         next = _next;
     }
+};*/
+
+class Node {
+    public int val;
+    public Node prev;
+    public Node next;
+    public Node child;
 };
