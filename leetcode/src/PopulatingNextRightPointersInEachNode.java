@@ -8,7 +8,7 @@ public class PopulatingNextRightPointersInEachNode {
 
         ArrayList<Node[]> levels = new ArrayList<>();
         levels.add(new Node[]{root});
-
+        /*
         while(levels.get(levels.size() - 1)[0].left != null) {
             Node[] level = new Node[2 << (levels.size() - 1)];
             Node[] prevLevel = levels.get(levels.size() - 1);
@@ -23,7 +23,7 @@ public class PopulatingNextRightPointersInEachNode {
             }
             levels.add(level);
         }
-
+        */
         return root;
     }
 }
